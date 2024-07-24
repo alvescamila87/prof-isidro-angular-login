@@ -1,6 +1,10 @@
-p {
+/*p {
   background-color: lightgray;
   font-size: xx-large;
   font-weight: bolder;
   text-align: center;
+}*/
+
+#titulo {
+  background-color: lightgray;
 }

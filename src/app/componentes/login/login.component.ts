@@ -1,5 +1,7 @@
+import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import {FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit{
   public txtLogin: string = "";
   public txtSenha: string = "";
 
-  public constructor() {
+  public constructor(private router: Router, private service: AuthService) {
 
   }
 
@@ -23,7 +25,9 @@ export class LoginComponent implements OnInit{
 
   public logar(): void {
     if(this.txtLogin === "camila" && this.txtSenha === "12345") {
-      console.log("Deu bom!");
+      //console.log("Deu bom!");
+      this.service.conectar();
+      this.router.navigate(["/home"]);
     } else {
       alert("Credenciais invalidas!");
     }
