@@ -1,6 +1,6 @@
 import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import {FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit{
     if(this.txtLogin === "camila" && this.txtSenha === "12345") {
       //console.log("Deu bom!");
       this.service.conectar();
+      //guards
+      localStorage.setItem("MyToken", "logado");
       this.router.navigate(["/home"]);
     } else {
       alert("Credenciais invalidas!");

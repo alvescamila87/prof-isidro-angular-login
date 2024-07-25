@@ -16,11 +16,20 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    //throw new Error('Method not implemented.');
+    // guards
+
+    /*const strToken = localStorage.getItem("MyToken");
+    if(!strToken) {
+      this.router.navigate(["/"]);
+    }*/
+
+    this.service.conectar();
+
   }
 
   public logout(): void {
     this.service.desconectar();
+    localStorage.removeItem("MyToken");
     this.router.navigate(["/"]);
   }
 
